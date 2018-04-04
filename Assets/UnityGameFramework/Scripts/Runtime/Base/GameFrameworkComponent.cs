@@ -1,25 +1,16 @@
-﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
-//------------------------------------------------------------
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
 namespace UnityGameFramework.Runtime
 {
-    /// <summary>
-    /// 游戏框架组件抽象类。
-    /// </summary>
     public abstract class GameFrameworkComponent : MonoBehaviour
     {
-        /// <summary>
-        /// 游戏框架组件初始化。
-        /// </summary>
         protected virtual void Awake()
         {
-            GameEntry.RegisterComponent(this);
+            //GameEntry
         }
     }
 }

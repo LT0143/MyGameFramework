@@ -1,13 +1,9 @@
-﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
-//------------------------------------------------------------
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using GameFramework;
 using GameFramework.Event;
-using System;
 using UnityEngine;
 
 namespace UnityGameFramework.Runtime
@@ -21,47 +17,30 @@ namespace UnityGameFramework.Runtime
     {
         private IEventManager m_EventManager = null;
 
-        /// <summary>
-        /// 获取事件数量。
-        /// </summary>
         public int Count
         {
-            get
-            {
-                return m_EventManager.Count;
-            }
+            get { return m_EventManager.Count; }
         }
 
-        /// <summary>
-        /// 游戏框架组件初始化。
-        /// </summary>
         protected override void Awake()
         {
             base.Awake();
-
             m_EventManager = GameFrameworkEntry.GetModule<IEventManager>();
-            if (m_EventManager == null)
-            {
-                Log.Fatal("Event manager is invalid.");
-                return;
-            }
-        }
-
-        private void Start()
-        {
-
+            if(m_EventManager == null)
+                Log.Fatal("Event manager is invalid");
         }
 
         /// <summary>
-        /// 检查订阅事件处理回调函数。
+        /// 检查订阅事件处理回调函数
         /// </summary>
-        /// <param name="id">事件类型编号。</param>
-        /// <param name="handler">要检查的事件处理回调函数。</param>
-        /// <returns>是否存在事件处理回调函数。</returns>
-        public bool Check(int id, EventHandler<GameEventArgs> handler)
+        /// <param name="id">事件类型编号</param>
+        /// <param name="handler">要检查的事件处理回调函数</param>
+        /// <returns>是否存在事件处理回调函数</returns>
+        public bool Check(int id,EventHandler<GameEventArgs> handler)
         {
             return m_EventManager.Check(id, handler);
         }
+
 
         /// <summary>
         /// 订阅事件处理回调函数。
@@ -102,5 +81,7 @@ namespace UnityGameFramework.Runtime
         {
             m_EventManager.FireNow(sender, e);
         }
+
+
     }
 }
