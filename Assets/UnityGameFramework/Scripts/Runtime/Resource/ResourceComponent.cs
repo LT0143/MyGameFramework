@@ -22,7 +22,14 @@ namespace UnityGameFramework.Runtime
         private bool m_PreformGCCollect = false;  //执行GC
         private AsyncOperation m_AsyncOpreation = null;
         private float m_LastOperationElapse = 0f; //最后操作流逝
-        //private  
+        private ResourceHelperBase m_ResourceBase = null;
+
+        [SerializeField]
+        private ResourceMode m_ResourceMode = ResourceMode.Package;
+
+        [SerializeField]
+        private ReadWritePathType m_ = ReadWritePathType.Unspecified;
+
 
 
     }
